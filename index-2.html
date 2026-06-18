@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>আনোয়ার মোটরস — পাওয়ার স্টিয়ারিং ও মোটর পার্টস স্পেশালিস্ট, চট্টগ্রাম</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:      #0B1F3A;
+      --steel:     #1C3A5E;
+      --gold:      #C9922A;
+      --gold-lt:   #E8B44A;
+      --off-white: #F5F3EF;
+      --mid:       #6B7A8D;
+      --light:     #D8E2EE;
+      --white:     #FFFFFF;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Hind Siliguri', sans-serif; background: var(--off-white); color: var(--navy); font-size: 16px; line-height: 1.7; }
+
+    /* NAV */
+    nav { background: var(--navy); position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 64px; border-bottom: 3px solid var(--gold); }
+    .nav-brand { color: var(--white); font-size: 1.2rem; font-weight: 700; }
+    .nav-brand span { color: var(--gold); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--light); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero { background: var(--navy); color: var(--white); padding: 80px 5% 70px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(201,146,42,0.04) 40px, rgba(201,146,42,0.04) 41px); }
+    .hero-inner { position: relative; max-width: 720px; }
+    .hero-eyebrow { display: inline-block; background: var(--gold); color: var(--navy); font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px; padding: 4px 14px; border-radius: 2px; margin-bottom: 22px; text-transform: uppercase; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.2; margin-bottom: 12px; }
+    .hero h1 span { color: var(--gold); }
+    .hero-tagline { font-size: 1.1rem; color: var(--light); margin-bottom: 16px; }
+    .hero-products { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+    .hero-products span { background: rgba(201,146,42,0.15); border: 1px solid var(--gold); color: var(--gold-lt); font-size: 0.85rem; font-weight: 600; padding: 5px 14px; border-radius: 20px; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; }
+    .btn-primary { background: var(--gold); color: var(--navy); font-family: 'Hind Siliguri', sans-serif; font-size: 1rem; font-weight: 700; padding: 13px 28px; border: none; border-radius: 4px; cursor: pointer; text-decoration: none; transition: background 0.2s, transform 0.1s; display: inline-block; }
+    .btn-primary:hover { background: var(--gold-lt); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--white); font-family: 'Hind Siliguri', sans-serif; font-size: 1rem; font-weight: 600; padding: 12px 28px; border: 2px solid rgba(255,255,255,0.4); border-radius: 4px; text-decoration: none; transition: border-color 0.2s; display: inline-block; }
+    .btn-outline:hover { border-color: var(--white); }
+
+    /* ABOUT */
+    .about { background: var(--white); padding: 64px 5%; border-bottom: 1px solid var(--light); }
+    .about-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+    .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .about h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; color: var(--navy); }
+    .about p { color: #3D4F63; font-size: 1.05rem; line-height: 1.8; }
+
+    /* PRODUCTS */
+    .products { padding: 72px 5%; background: var(--off-white); }
+    .products-header { text-align: center; margin-bottom: 48px; }
+    .products-header h2 { font-size: 1.9rem; font-weight: 700; color: var(--navy); }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; max-width: 1100px; margin: 0 auto; }
+    .product-card { background: var(--white); border-radius: 8px; overflow: hidden; border: 1px solid var(--light); transition: box-shadow 0.25s, transform 0.2s; }
+    .product-card:hover { box-shadow: 0 8px 32px rgba(11,31,58,0.12); transform: translateY(-3px); }
+    .product-card-header { background: var(--navy); padding: 24px 24px 20px; }
+    .product-icon { font-size: 2.2rem; margin-bottom: 10px; display: block; }
+    .product-card-header h3 { color: var(--white); font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
+    .product-card-header p { color: var(--gold-lt); font-size: 0.88rem; font-weight: 500; }
+    .product-card-body { padding: 24px; }
+    .product-card-body p { color: #3D4F63; font-size: 0.95rem; line-height: 1.75; margin-bottom: 18px; }
+    .product-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .product-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.92rem; color: var(--navy); }
+    .product-features li::before { content: '✓'; color: var(--gold); font-weight: 700; font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+    .free-badge { display: inline-block; background: rgba(201,146,42,0.12); border: 1px solid var(--gold); color: var(--gold); font-size: 0.82rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-left: 6px; }
+
+    /* WHY */
+    .why { background: var(--navy); color: var(--white); padding: 72px 5%; }
+    .why-header { text-align: center; margin-bottom: 52px; }
+    .why-header .section-label { color: var(--gold); }
+    .why-header h2 { font-size: 1.9rem; font-weight: 700; color: var(--white); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
+    .why-card { background: var(--steel); border-radius: 8px; padding: 28px 24px; border-top: 3px solid var(--gold); transition: background 0.2s; }
+    .why-card:hover { background: #243f60; }
+    .why-card-icon { font-size: 1.8rem; margin-bottom: 14px; display: block; }
+    .why-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; color: var(--gold-lt); }
+    .why-card p { font-size: 0.92rem; color: var(--light); line-height: 1.7; }
+
+    /* TESTIMONIALS */
+    .testimonials { background: var(--white); padding: 72px 5%; border-top: 1px solid var(--light); }
+    .testimonials-header { text-align: center; margin-bottom: 48px; }
+    .testimonials-header h2 { font-size: 1.9rem; font-weight: 700; color: var(--navy); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
+    .tcard { background: var(--off-white); border-radius: 8px; padding: 28px; border-left: 4px solid var(--gold); position: relative; }
+    .tcard::before { content: '\201C'; font-size: 4rem; color: var(--gold); opacity: 0.25; position: absolute; top: 8px; left: 20px; line-height: 1; font-family: serif; }
+    .tcard p { font-size: 0.97rem; color: #3D4F63; line-height: 1.75; margin-bottom: 16px; font-style: italic; }
+    .tcard-author { font-size: 0.85rem; font-weight: 700; color: var(--navy); }
+
+    /* CONTACT */
+    .contact { background: var(--off-white); padding: 72px 5%; }
+    .contact-inner { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .contact-left h2 { font-size: 1.8rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .contact-left p { color: #3D4F63; font-size: 0.97rem; line-height: 1.75; margin-bottom: 28px; }
+    .contact-detail { display: flex; flex-direction: column; gap: 16px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 14px; }
+    .contact-item-icon { width: 40px; height: 40px; background: var(--navy); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .contact-item-text strong { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); font-weight: 700; margin-bottom: 2px; }
+    .contact-item-text span { font-size: 0.97rem; color: var(--navy); font-weight: 500; }
+    .contact-right { background: var(--navy); border-radius: 10px; padding: 36px 30px; color: var(--white); }
+    .contact-right h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; color: var(--gold-lt); }
+    .cta-buttons { display: flex; flex-direction: column; gap: 14px; }
+    .cta-call { display: flex; align-items: center; gap: 12px; background: var(--gold); color: var(--navy); text-decoration: none; padding: 14px 20px; border-radius: 6px; font-weight: 700; font-size: 1rem; font-family: 'Hind Siliguri', sans-serif; transition: background 0.2s; }
+    .cta-call:hover { background: var(--gold-lt); }
+    .cta-wa { display: flex; align-items: center; gap: 12px; background: #25D366; color: var(--white); text-decoration: none; padding: 14px 20px; border-radius: 6px; font-weight: 700; font-size: 1rem; font-family: 'Hind Siliguri', sans-serif; transition: background 0.2s; }
+    .cta-wa:hover { background: #1ebe5a; }
+    .open-badge { margin-top: 20px; background: rgba(201,146,42,0.15); border: 1px solid var(--gold); border-radius: 6px; padding: 12px 16px; font-size: 0.88rem; color: var(--gold-lt); text-align: center; font-weight: 600; }
+
+    /* FOOTER */
+    footer { background: #060f1e; color: var(--mid); text-align: center; padding: 24px 5%; font-size: 0.85rem; border-top: 3px solid var(--gold); }
+    footer span { color: var(--gold); font-weight: 600; }
+
+    /* MOBILE */
+    @media (max-width: 680px) {
+      .nav-links { display: none; }
+      .hero { padding: 56px 4% 52px; }
+      .about, .products, .why, .testimonials, .contact { padding: 52px 4%; }
+      .contact-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand"><span>আনোয়ার</span> মোটরস</div>
+  <ul class="nav-links">
+    <li><a href="#products">বিশেষায়িত সেবা</a></li>
+    <li><a href="#why">কেন আমরা সেরা</a></li>
+    <li><a href="#contact">যোগাযোগ</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">মুরাদপুর, চট্টগ্রাম</div>
+    <h1>পাওয়ার স্টিয়ারিং ও মোটর পার্টস<br/><span>স্পেশালিস্ট ডায়াগনস্টিক শপ</span></h1>
+    <p class="hero-tagline">সস্তা চায়না পার্টসের প্রতারণা থেকে বাঁচুন। আপনার চোখের সামনে আসল জাপানি রিকন্ডিশন্ড পার্টস দিয়ে ১০০% গ্যারান্টিড সার্ভিস।</p>
+    <div class="hero-products">
+      <span>⚙️ পাওয়ার স্টিয়ারিং পাম্প</span>
+      <span>🔋 স্টার্টার মোটর (সেলফ)</span>
+      <span>🔩 বেন্ডিক্স গিয়ার</span>
+    </div>
+    <div class="hero-cta">
+      <a href="tel:01819176641" class="btn-primary">📞 এখনই কল করুন</a>
+      <a href="#products" class="btn-outline">সেবাসমূহ দেখুন</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="section-label">আমাদের পরিচয়</div>
+    <h2>সততাই আমাদের সবচেয়ে বড় পার্টস</h2>
+    <p>চট্টগ্রামের মুরাদপুরে <strong>আনোয়ার মোটরস</strong> কেবল পার্টস বিক্রি করে না — আমরা আপনার গাড়ির হাইড্রোলিক্স ও ইলেকট্রিক্যাল সমস্যার শতভাগ স্থায়ী সমাধান দিই। বাজারে জাপানি বলে যে সস্তা চায়না পাম্প বা সেলফ বিক্রি হয়, সেগুলো অল্প দিনেই নষ্ট হয়। আমরা সরাসরি জাপান থেকে আনা ফ্রেশ রোটর ক্যাম সেট ও জেনুইন পার্টস ব্যবহার করে আপনার সামনেই পার্টস রিবিল্ড করি — এবং পাম্প ও সেলফ রিবিল্ডে ফিটিং চার্জ সম্পূর্ণ বিনামূল্যে।</p>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products-header">
+    <div class="section-label">আমাদের বিশেষায়িত সেবা</div>
+    <h2>আপনার গাড়ির যে সমস্যাই হোক, সমাধান আমাদের কাছে</h2>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card">
+      <div class="product-card-header">
+        <span class="product-icon">⚙️</span>
+        <h3>পাওয়ার স্টিয়ারিং পাম্প</h3>
+        <p>স্টিয়ারিং ভারী লাগছে? চিঁ-চিঁ শব্দ বা তেল লিক?</p>
+      </div>
+      <div class="product-card-body">
+        <p>টয়োটা হাইয়েস, টাউনএস, ল্যান্ড ক্রুজারসহ সব জাপানি গাড়ির পাম্পের নিখুঁত সমাধান। আমরা পুরো পাম্প বদলানোর নামে অতিরিক্ত বিল করি না।</p>
+        <ul class="product-features">
+          <li>আপনার চোখের সামনে শেল খুলে ফ্রেশ জাপানি রোটর ক্যাম সেট স্থাপন</li>
+          <li>হাই-প্রেসার নতুন অয়েল সিল ব্যবহার</li>
+          <li>৩ থেকে ৬ মাসের রিপ্লেসমেন্ট ওয়ারেন্টি</li>
+          <li>পাম্প রিবিল্ডে ফিটিং চার্জ সম্পূর্ণ বিনামূল্যে <span class="free-badge">FREE</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-card-header">
+        <span class="product-icon">🔋</span>
+        <h3>স্টার্টার মোটর (সেলফ)</h3>
+        <p>চাবি ঘুরালে 'কট কট' শব্দ বা সেলফ জ্যাম?</p>
+      </div>
+      <div class="product-card-body">
+        <p>আর্মেচার ক্ষয়, কার্বন শেষ বা সোলেনয়েড সুইচ নষ্ট — যে কারণেই হোক, আমরা সঠিক ডায়াগনস্টিস করে শুধু দরকারি পার্টসটাই বদলাই।</p>
+        <ul class="product-features">
+          <li>আর্মেচার, কার্বন ও সোলেনয়েড সুইচের নিখুঁত ডায়াগনসিস</li>
+          <li>শতভাগ জাপানি রিকন্ডিশন্ড ইন্টারনাল পার্টস দিয়ে রিবিল্ড</li>
+          <li>৩ থেকে ৬ মাসের রিপ্লেসমেন্ট ওয়ারেন্টি</li>
+          <li>সেলফ রিবিল্ডে ফিটিং চার্জ সম্পূর্ণ বিনামূল্যে <span class="free-badge">FREE</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-card-header">
+        <span class="product-icon">🔩</span>
+        <h3>বেন্ডিক্স গিয়ার</h3>
+        <p>সেলফ ঠিক আছে, তবু ইঞ্জিন ধরছে না বা বিকট শব্দ?</p>
+      </div>
+      <div class="product-card-body">
+        <p>বেন্ডিক্স গিয়ার ক্ষয়ে গেলে বা ইন্টারনাল স্প্রিং নষ্ট হলে ইঞ্জিন ঠিকমতো ধরতে চায় না। অনুমানে নয়, আমরা নিখুঁত ম্যাচিংয়ে বিশ্বাসী।</p>
+        <ul class="product-features">
+          <li>টয়োটা, নিসান, হিনো, ইসুজুসহ বিভিন্ন মডেলের বিশাল স্টক</li>
+          <li>অভিজ্ঞতার মাধ্যমে নিখুঁত গিয়ার ও দাঁতের মডেল ম্যাচিং</li>
+          <li>৩ থেকে ৬ মাসের রিপ্লেসমেন্ট ওয়ারেন্টি</li>
+          <li>সঠিক পার্টস বাছাইয়ে বিশেষজ্ঞ পরামর্শ বিনামূল্যে</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="why-header">
+    <div class="section-label">আমাদের বিশেষত্ব</div>
+    <h2>আনোয়ার মোটরসের পার্থক্যটা কোথায়?</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-card-icon">🇯🇵</span>
+      <h3>জাপানি রিকন্ডিশন্ড পার্টস</h3>
+      <p>জাপান থেকে আনা ফ্রেশ রোটর ক্যাম সেট ও ইন্টারনাল পার্টস — মানে নতুনের সমতুল্য, দামে সাশ্রয়ী। আমরা সেই পার্টসই রাখি যেগুলো আমরা নিজেরা বিশ্বাস করি।</p>
+    </div>
+    <div class="why-card">
+      <span class="why-card-icon">🛠️</span>
+      <h3>পাম্প ও সেলফ রিবিল্ডে ফিটিং ফ্রি</h3>
+      <p>পাওয়ার স্টিয়ারিং পাম্প ও স্টার্টার মোটর রিবিল্ডে ফিটিং চার্জ সম্পূর্ণ বিনামূল্যে। পার্টসের দামই চূড়ান্ত দাম — কোনো লুকানো চার্জ নেই।</p>
+    </div>
+    <div class="why-card">
+      <span class="why-card-icon">👁️</span>
+      <h3>চোখের সামনে লাইভ সার্ভিস</h3>
+      <p>কোনো লুকোচুরি নেই। আপনার পার্টস আপনার সামনেই খুলে ডিফেক্ট দেখানো হয় এবং জাপানি পার্টস আপনার সামনেই ফিট করা হয়।</p>
+    </div>
+    <div class="why-card">
+      <span class="why-card-icon">🔄</span>
+      <h3>৩–৬ মাসের রিপ্লেসমেন্ট ওয়ারেন্টি</h3>
+      <p>আমাদের রিবিল্ড করা পার্টসে কোনো ত্রুটি দেখা দিলে কোনো অজুহাত ছাড়াই বদলে দেওয়া হবে। বিক্রির পরেও দায়িত্ব থাকে।</p>
+    </div>
+    <div class="why-card">
+      <span class="why-card-icon">💬</span>
+      <h3>সৎ ডায়াগনস্টিক পরামর্শ</h3>
+      <p>যেটা আসলেই দরকার সেটাই বলা হয়। অপ্রয়োজনীয় পার্টস বদলানোর পরামর্শ দিয়ে অতিরিক্ত বিল করা আমাদের কাজ নয়।</p>
+    </div>
+    <div class="why-card">
+      <span class="why-card-icon">🤝</span>
+      <h3>মেকানিক ফ্রেন্ডলি কোর-সোয়াপ</h3>
+      <p>স্থানীয় গ্যারেজ ও মেকানিক ভাইদের জন্য পুরাতন বা ড্যামেজ কোর রেখে রিকন্ডিশন্ড পার্টস এক্সচেঞ্জের বিশেষ সুবিধা রয়েছে।</p>
+    </div>
+    <div class="why-card">
+      <span class="why-card-icon">🗓️</span>
+      <h3>সপ্তাহের ৭ দিন খোলা</h3>
+      <p>শুক্রবারসহ প্রতিদিন খোলা থাকি। জরুরি প্রয়োজনে যেকোনো দিন আসুন — আমরা আছি।</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-header">
+    <div class="section-label">গ্রাহকদের কথা</div>
+    <h2>তারা বলছেন</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="tcard">
+      <p>জাপানি রিকন্ডিশন্ড পাম্প রিবিল্ড করিয়েছি, মাসের পর মাস কোনো সমস্যা নেই। ভেতরে কী পার্টস দিচ্ছে সেটা চোখের সামনে খুলে দেখানো হলো — এই স্বচ্ছতা আগে কোথাও পাইনি।</p>
+      <div class="tcard-author">— টয়োটা অ্যাক্সিও মালিক, চট্টগ্রাম</div>
+    </div>
+    <div class="tcard">
+      <p>সেলফে কট কট শব্দের রোগটা কেউ ধরতে পারছিল না। আনোয়ার মোটরসে এসে সঠিক ডায়াগনস্টিস হলো, ফিটিং চার্জও নিল না — একদম পারফেক্ট সমাধান।</p>
+      <div class="tcard-author">— টয়োটা হাইয়েস চালক, মুরাদপুর</div>
+    </div>
+    <div class="tcard">
+      <p>বেন্ডিক্স গিয়ার নিয়ে অনেক দোকান ঘুরেছি, কেউ সঠিকভাবে ম্যাচিং করতে পারেনি। এখানে এসে সঠিক জাপানি পার্টস ও অভিজ্ঞতার মাধ্যমে চমৎকার সমাধান হলো।</p>
+      <div class="tcard-author">— নিসান এক্স-ট্রেইল মালিক, ঢাকা</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="section-label">যোগাযোগ করুন</div>
+      <h2>আজই আসুন,<br/>নিশ্চিন্তে যান।</h2>
+      <p>গাড়ি নিয়ে কোনো সমস্যায় পড়েছেন? কল করুন বা WhatsApp করুন — বিনামূল্যে ডায়াগনস্টিক পরামর্শ দেওয়া হয়।</p>
+      <div class="contact-detail">
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-text">
+            <strong>ঠিকানা</strong>
+            <span>মুরাদপুর ১ নং রেলগেট, ব্যাকফুট গলি,<br/>কাদের মার্কেট, চট্টগ্রাম</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-text">
+            <strong>মোবাইল</strong>
+            <span>01819-176641</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">💬</div>
+          <div class="contact-item-text">
+            <strong>WhatsApp</strong>
+            <span>01647-579914</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🕘</div>
+          <div class="contact-item-text">
+            <strong>সময়</strong>
+            <span>সপ্তাহের ৭ দিন — শুক্রবারসহ প্রতিদিন</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <h3>এখনই যোগাযোগ করুন</h3>
+      <div class="cta-buttons">
+        <a href="tel:01819176641" class="cta-call">📞 &nbsp; 01819-176641 — কল করুন</a>
+        <a href="https://wa.me/8801647579914" target="_blank" class="cta-wa">💬 &nbsp; WhatsApp করুন</a>
+      </div>
+      <div class="open-badge">🟢 সপ্তাহের ৭ দিন খোলা — শুক্রবারেও</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © ২০২৫ <span>আনোয়ার মোটরস</span> — মুরাদপুর, চট্টগ্রাম &nbsp;|&nbsp; সকল স্বত্ব সংরক্ষিত
+</footer>
+
+</body>
+</html>
